@@ -35,7 +35,7 @@
                         <p:outputLabel value="#{bundle.CreatePacienteLabel_fechaNacimiento}" for="fechaNacimiento" />
                         <p:calendar id="fechaNacimiento" pattern="MM/dd/yyyy" value="#{pacienteController.selected.fechaNacimiento}" title="#{bundle.CreatePacienteTitle_fechaNacimiento}" required="true" requiredMessage="#{bundle.CreatePacienteRequiredMessage_fechaNacimiento}" showOn="button"/>
                     </p:panelGrid>
-                    <h:commandButton type="submit" action="resultado.jsp"  actionListener="#{usuariop.validarLogin()}" value="#{bundle.Save}" />
+                    <h:commandButton type="submit"  actionListener="#{pacienteController.create()}" value="Registrar" />
                 </h:panelGroup>
             </h:form>
         </p:dialog>
