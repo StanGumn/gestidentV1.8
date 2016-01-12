@@ -5,6 +5,11 @@ import com.ec.controller.util.JsfUtil;
 import com.ec.controller.util.JsfUtil.PersistAction;
 import com.ec.sesion.PacienteFacade;
 
+import com.ec.controller.PacienteController;
+import com.dao.pacienteControl;
+import modelo.MensajeCorreo;
+import modelo.Email;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -14,10 +19,12 @@ import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import org.primefaces.expression.impl.ThisExpressionResolver;
 
 @Named("pacienteController")
 @SessionScoped
@@ -34,7 +41,7 @@ public class PacienteController implements Serializable {
     public Paciente getSelected() {
         return selected;
     }
-
+        
     public void setSelected(Paciente selected) {
         this.selected = selected;
     }
@@ -161,5 +168,26 @@ public class PacienteController implements Serializable {
         }
 
     }
+
+    //CODIGO PARA EMAIL, SI NO SIRVE SE PUEDE ELIMINAR 
+    /*
+    private MensajeCorreo mensagem = new MensajeCorreo();
+
+    public MensajeCorreo getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(MensajeCorreo mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public void enviaEmail() {
+        try {
+            Email.enviaEmail(mensagem);
+        } catch (EmailException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error con el envio", "Erro"));
+            Logger.getLogger(PacienteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }*/
 
 }
