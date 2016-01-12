@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package modelo;
+
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.Session;
@@ -17,6 +18,7 @@ import javax.mail.internet.MimeMessage;
  * @author stand
  */
 public class Email {
+
     //public boolean enviarCorreo(String de, String clave, String[] para, String mensaje, String asunto){
     public boolean enviarCorreo(String de, String clave, String para, String mensaje, String asunto){
         boolean enviado=false;
@@ -50,4 +52,5 @@ public class Email {
         }
         return enviado;
     }
+
 }
