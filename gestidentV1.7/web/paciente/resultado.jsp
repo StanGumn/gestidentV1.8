@@ -7,7 +7,7 @@
 <%@page import="com.ec.controller.PacienteController"%>
 <%@page import="com.ec.entidades.Paciente"%>
 <%@page import="com.dao.pacienteControl"%>
-<%@page import="modelo.CorreoContraControl"%>
+
 <%@page import="javax.faces.context.FacesContext"%>
 <%@page import="modelo.Email"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,15 +18,19 @@
         <title>JSP Page</title>
     </head>
     <body>
+        hola
         <%
-            pacienteControl pa= new pacienteControl();
+            PacienteController pa = new PacienteController();
+            Paciente pi = new Paciente();
             Email email = new Email();
             String de = "gestident.sw2@gmail.com";
+            
             String clave = "pichones";
-            String para = pa.getCorreo();
-            String mensaje = "Bienvenido al Sistema GestiDent"
+            String para = pi.getEmailPaciente();// pa.getCorreo();
+            System.out.println(para);
+            String mensaje = "Bienvenido al Sistema GestiDent PRUEBA 1"
                     + "\nUsted puede ingresar al sistema mediante su numero de Cedula"
-                    + "\nY su contrasenia: "+pa.getPassword();//+request.getParameter("mensaje");
+                    + "\nY su contrasenia: ";//+pa.getPassword();//+request.getParameter("mensaje");
             String asunto = "Bienvenido al Sistema Gestident";
             
             boolean resultado = email.enviarCorreo(de, clave, para, mensaje, asunto);
