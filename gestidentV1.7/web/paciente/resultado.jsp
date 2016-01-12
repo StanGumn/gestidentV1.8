@@ -26,12 +26,12 @@
             String de = "gestident.sw2@gmail.com";
             
             String clave = "pichones";
-            String para = pi.getEmailPaciente();// pa.getCorreo();
+            String para = request.getParameter("para");
             System.out.println(para);
-            String mensaje = "Bienvenido al Sistema GestiDent PRUEBA 1"
-                    + "\nUsted puede ingresar al sistema mediante su numero de Cedula"
-                    + "\nY su contrasenia: ";//+pa.getPassword();//+request.getParameter("mensaje");
-            String asunto = "Bienvenido al Sistema Gestident";
+            String mensaje = "Bienvenido al Sistema GestiDent"
+                    + "\n\nUsted puede ingresar al sistema mediante su numero de Cedula proporcionado"
+                    + "\n\nPassword: "+request.getParameter("contra");
+            String asunto = "Bienvenido a GestiDent";
             
             boolean resultado = email.enviarCorreo(de, clave, para, mensaje, asunto);
             if (resultado){
